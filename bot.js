@@ -109,6 +109,7 @@ client.on('message', (message)=>{
 
 client.on('message', message => {                      
     if(!message.channel.guild) return;
+     var prefix = "!"
        if(message.content.startsWith(prefix + 'color')) {
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
        message.channel.sendFile(`https://media.discordapp.net/attachments/444071272503050241/450979273206005780/colors.png`).then(msg => {
