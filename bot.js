@@ -489,7 +489,7 @@ client.on('message', message => {
   
   }).then(messages => message.channel.bulkDelete(messages));
   message.channel.sendMessage("", {embed: {
-    title: "``✏️✅ تــم مسح الشات ``",
+    title: "``✏️**تــم مسح الشات بنجاح** ``",
     color: 0x06DF00,
     footer: {
     
