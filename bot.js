@@ -85,12 +85,26 @@ const mi = ['./img/w1.png','./img/w2.png']; //يمكن ضيف '/img/w3.png','/im
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
-  return channel.send(`「.🔱 Welcome TO KD 🔱.」شيڪ عڵي قوٱنين ٱڵڪڵٱن #rules 
+  return channel.send(`:tada: :tada: ولكم نورت السيرفر:tada: :tada: 
 :crown:اسم العضو  ${member}:crown:  
 انت العضو رقم ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
 
+client.on('guildMemberRemove', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`خرج عضو`)
+    .setDescription(`**__طلع آو تم طرده من قبل الآدارة__** 👏`)
+    .addField(':bust_in_silhouette:   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`H Bot`, '')
+
+var channel =member.guild.channels.find('name', 'welcome')
+if (!channel) return;
+channel.send({embed : embed});
+});
 
 
 client.on('message', (message)=>{
