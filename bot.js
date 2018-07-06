@@ -344,5 +344,12 @@ client.on('message', message => {
                                                   });
 												  
 
+ client.on('guildCreate', guild => {
+  client.channels.get("464605715789774869").send(`**تم اضافة البوت في سيرفر جديد مبروكك
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__**`)
+}); 
+
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
