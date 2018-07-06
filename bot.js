@@ -212,7 +212,7 @@ if (message.content === '!sup') {
   client.on('message', message => {
   if (true) {
 if (message.content === '!Support') {
-      message.author.send(' | https://discord.gg/qgmHJy2 | لـ أي استفسار').catch(e => console.log(e.stack));
+      message.author.send(' | https://discord.gg/ywQVWzB | لـ أي استفسار').catch(e => console.log(e.stack));
 
     }
    } 
