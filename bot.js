@@ -345,7 +345,7 @@ client.on('message', message => {
 												  
 
  client.on('guildCreate', guild => {
-  client.channels.get("464605715789774869").send(`**تم اضافة البوت في سيرفر جديد مبروكك
+  client.channels.get("464605715789774869").send(`**تم اضافة البوت في سيرفر جديد مبروك شكرا بجد
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 }); 
