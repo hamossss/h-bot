@@ -137,7 +137,7 @@ message.channel.sendEmbed(embed);
 
 
 client.on('message', message => {
-     if (message.content === "!inv") {
+     if (message.content === "!invite") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -152,7 +152,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (true) {
-if (message.content === '!inv') {
+if (message.content === '!invite') {
       message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=464578042094944266&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
     }
@@ -211,7 +211,7 @@ if (message.content === '!sup') {
   });
   client.on('message', message => {
   if (true) {
-if (message.content === '!Support') {
+if (message.content === '!support') {
       message.author.send(' | https://discord.gg/ywQVWzB | لـ أي استفسار').catch(e => console.log(e.stack));
 
     }
@@ -219,7 +219,7 @@ if (message.content === '!Support') {
   });
 
 client.on('message', message => {
-     if (message.content === "!Support") {
+     if (message.content === "!support") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -498,6 +498,106 @@ client.on('message', message => {
   };
   
   });
+
+client.on("message", (message) => {
+    if (message.content.startsWith("!cv")) {
+                if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            let args = message.content.split(" ").slice(1);
+        message.guild.createChannel(args.join(' '), 'voice');
+        message.channel.sendMessage('**تـم إنـشاء روم صـوتي**')
+        
+    }
+    });
+    
+	
+	client.on("message", (message) => {
+    if (message.content.startsWith("!ct")) {
+                if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            let args = message.content.split(" ").slice(1);
+        message.guild.createChannel(args.join(' '), 'text');
+    message.channel.sendMessage('**تـم إنـشاء روم كـتابـي**')
+    
+    }
+    });
+
+client.on("message", msg => {
+           var prefix = "!";
+  if(msg.content.startsWith (prefix + "id")) {
+    if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+      const embed = new Discord.RichEmbed();
+  embed.addField(":cloud_tornado:  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
+          .addField(":id:  الايدي", `**[ ${msg.author.id} ]**`, true)
+          .setColor("RANDOM")
+          .setFooter(msg.author.username , msg.author.avatarURL)
+          .setThumbnail(`${msg.author.avatarURL}`)
+          .setTimestamp()
+          .setURL(`${msg.author.avatarURL}`)
+          .addField(':spy:  الحالة', `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
+          .addField(':satellite_orbital:   يلعب', `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
+          .addField(':military_medal:  الرتب', `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
+          .addField(':robot:  هل هو بوت', `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true);
+      msg.channel.send({embed: embed})
+  }
+});		
+
+
+
+client.on("message", message => {
+ if (message.content === "!help") {
+        message.react("😘")
+           message.react("😵")
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+ 
+╔[❖════════════❖]╗
+  Prefix = !
+╚[❖════════════❖]╝
+
+ **welcome لعمل ترحيب بي الصور سوي روم اسمه**
+
+ **!clear:لمسح الشات الامر **
+
+ **اذ تبي رابط السيرفر اكتب: رابط**
+
+ **!sand:الي ارسال رساله الي صاحب البوت الامر **
+ 
+ **!cv :انشاء روم صوتي موقت الامر **
+ 
+ **!ct :انشار روم كتابي وقت الامر**
+ 
+ **!kick :لعمل كيك لعضو مع السبب الامر **++
+ 
+ **!ban :لعمل باند لعضو مع السبب الامر **
+ 
+ **!bc :لعمل البرودكاست الامر**
+ 
+ **!server  : معلومات السيرفر**
+
+ **!id :لمعرفت الايدي الامر**  
+ 
+ **!bot لمعرفت البوت في كام سيرفر **
+ 
+ 
+ **!invite  : لدعوة البوت الى سيرفرك**
+
+ **!support  : سيرفر الدعم الفني**
+ 
+ 
+ 
+ 『:money_mouth:』『قريبا سوف نضيف المزيد و المزيد من الاوامر 』『:wink:』
+ 
+ 
+ 
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+}); 
+
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
