@@ -616,22 +616,17 @@ client.on('message', message => {
 });
 
 
-  client.on('ready', function(){
-    var ms = 1000 ;
-    var setGame = [`!help `,` !help`,`!invite`,`!invite`];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/idk`);
-    }, ms);1000
 
+
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`!help ||!invite`,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
 });
 
 client.on('message', message => {
