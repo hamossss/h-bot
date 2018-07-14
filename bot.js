@@ -616,29 +616,7 @@ client.on('message', message => {
 });
 
 
-const devs = ['386069723764490240' , '386069723764490240' , '386069723764490240' , '386069723764490240'];
-const adminprefix = "!";
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!devs.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    client.user.setGame(argresult);
-      message.channel.sendMessage(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.sendMessage(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.sendMessage(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'tw')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**✅   ${argresult}**`)
-  }
-  });
+
 
 client.on('ready', () => {
    console.log(`----------------`);
