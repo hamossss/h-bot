@@ -143,7 +143,7 @@ client.on('message', function(message) {
 
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
-    if (message.content.startsWith('$bc-bot')){
+    if (message.content.startsWith('*bc-bot')){
     if(!message.author.id === '') return;
     message.channel.sendMessage('جار ارسال الرسالة :white_check_mark:')
     client.users.forEach(m =>{
@@ -414,47 +414,47 @@ client.on("message", message => {
 
 **   -    [welcome ]  [ اذ تبي تسوي ترحيب بي الصوره سوي روم بي اسم]** 
  
-     **    -    [ *clear ]  [ لحذف الرسائل ]**
+     **    -   [ *clear ]  [ لحذف الرسائل ]**
 
-       **  -    [ *sug]  [ لإرسال رساله لصاحب البوت]**
+       **  -   [ *sug]  [ لإرسال رساله لصاحب البوت]**
 
-      **   -    [ *bc ]  [ لإرسال برودكاست لكل السيرفر ]**
+      **   -   [ *bc ]  [ لإرسال برودكاست لكل السيرفر ]**
 	  
-	** -    [ *kick]  [  اذ تبي تطرد عضو مع السبب]**
+	** -   [ *kick]  [  اذ تبي تطرد عضو مع السبب]**
 	  
-        **  -   [ *ban]  [  اذ تبي تباند عضو مع السبب]**
+        **  -  [ *ban]  [  اذ تبي تباند عضو مع السبب]**
 	  
-      **   -    [*mute ]  [ لعطاء العضو ميوت  ]**
+      **   -   [*mute ]  [ لعطاء العضو ميوت  ]**
 
-        ** -    [ *unmute ]  [ لازالة الميوت عن العضو  ]**
+        ** -   [ *unmute ]  [ لازالة الميوت عن العضو  ]**
 
-      **   -    [ *avatar ]  [ لظهار الصورة الخاص بـ العضو  ]**
+      **   -   [ *avatar ]  [ لظهار الصورة الخاص بـ العضو  ]**
 
-      **   -    [ *server ]  [ لمعرفة معلومات عن السيرفر ]**
+     **      - [ *server ]  [ لمعرفة معلومات عن السيرفر ]**
 	  
-	  **  - [ *mb ]  [ لمعرفة حالة الأعضاء ]**
+	  ** -[ *mb ]  [ لمعرفة حالة الأعضاء ]**
 	  
 	  ** - [ *role ]  [  لعطاء رتبه له عضو]** 
 	  
-	  **  -[ *invites]  [  عدد الدعواة ]**
+	  ** - [ *invites]  [  عدد الدعواة ]**
 	  
-	 ** -   [ *bot ]  [ ڵو تبي ترعرف ٱڵبوت بڪٱم سيرفر]**
+	 **  - [ *bot ]  [ ڵو تبي ترعرف ٱڵبوت بڪٱم سيرفر]**
 
-         ** -  [ *support]  [ رابط الدعم الفني] **
+         **  - [ *support]  [ رابط الدعم الفني] **
 
-         **  -  [ *inv]  [ دعوة البوت الي سيرفر]
+         **  - [ *inv]  [ دعوة البوت الي سيرفر]
 	  
 	 ** اذا تبي رابط السيرفر اكتب : رٱبط**
 	  
            -    ▬▬▬▬▬▬▬▬▬ أوامر الألعاب ▬▬▬▬▬▬▬▬▬
 	  
-     **      -    [ *كت تويت ]**
+**-   [ *كت تويت ]**
 
-     **      -    [ *خواطر ]**
+**-   [ *خواطر ]**
 	 
-	 **      -    [ *قرعه ]**
+**-   [ *قرعه ]**
 
-     **      -    [ *حكم ]**
+**-   [ *حكم ]**
 	  
                           	  
  
@@ -839,7 +839,30 @@ client.on('message', message => {
  
  
 
-
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'clear')) {
+      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`ماعندك هذا البرمشن[*MANAGE_MESSAGES*] `).catch(console.error);
+  message.delete()
+  if(!message.channel.guild) return;
+  let args = message.content.split(" ").slice(1);
+  
+  const messagecount = parseInt(args.join(' '));
+  
+  message.channel.fetchMessages({
+  
+  limit: messagecount
+  
+  }).then(messages => message.channel.bulkDelete(messages));
+  message.channel.sendMessage("", {embed: {
+    title: "``✏️✅ تــم مسح الشات ``",
+    color: 0x06DF00,
+    footer: {
+    
+    }
+    }}).then(msg => {msg.delete(3000)});
+  };
+  
+  });
 
 
 // THIS  MUST  BE  THIS  WAY
