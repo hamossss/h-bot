@@ -761,7 +761,7 @@ const R = [
 client.on('message', message => {
   if (true) {
 if (message.content === '*inv') {
-      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=464578042094944266&permissions=8&scope=bot').catch(e => console.log(e.stack));
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=469144082216779778&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
     }
    } 
