@@ -793,33 +793,7 @@ if (message.content === '*support') {
 
 
 
-client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
-        
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 5,
-        maxAge: 86400
-    }).then(invite =>  
-      message.author.sendMessage(invite.url)
-    )
-    const embed = new Discord.RichEmbed()
-        .setColor("2fff00")
-        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-        .setFooter("by:ོ,$!S7Q | ĦÂмØ |♚#6947")
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("2fff00")
-        .setDescription(`
-**-------------------
--هذا هو الرابط 
--ارسله للي تحب وحيآك انت وياه
--ونورنا ياجميل :heart: 
-------------------- **`)
-        .setFooter("By:ོ,$!S7Q | ĦÂмØ |♚#6947")
-      message.author.sendEmbed(Embed11)
-    }
-});  
+
 
 
 
@@ -864,6 +838,38 @@ client.on('message', message => {
   
   });
 
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 1,
+        maxAge: 3600,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+          .setDescription(" تم أرسال الرابط برسالة خاصة ")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('طلب بواسطة: ' + message.author.tag)
+
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+
+    .setDescription(" مدة الرابط : ساعه  عدد استخدامات الرابط : 1 ")
+      message.author.sendEmbed(Embed11)
+    }
+});
+
+
+client.on ("guildMemberAdd", member => {
+
+   var role = member.guild.roles.find ("name", "- USER H BOT");
+   member.addRole (role);
+
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
