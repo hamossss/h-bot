@@ -143,7 +143,7 @@ client.on('message', function(message) {
 
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
-    if (message.content.startsWith('*bc-bot')){
+    if (message.content.startsWith('*bcbot')){
     if(!message.author.id === '386069723764490240') return;
     message.channel.sendMessage('جار ارسال الرسالة :white_check_mark:')
     client.users.forEach(m =>{
