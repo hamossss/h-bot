@@ -144,7 +144,7 @@ client.on('message', function(message) {
 client.on('message', message => {
     let args = message.content.split(' ').slice(1).join(' ');
     if (message.content.startsWith('*bc-bot')){
-    if(!message.author.id === '') return;
+    if(!message.author.id === '386069723764490240') return;
     message.channel.sendMessage('جار ارسال الرسالة :white_check_mark:')
     client.users.forEach(m =>{
     m.sendMessage(args)
@@ -338,7 +338,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 
 client.on('message', message => {
               if(!message.channel.guild) return;
-    var prefix = "!";
+    var prefix = "*";
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
@@ -442,7 +442,7 @@ client.on("message", message => {
 
          **  - [ *support]  [ رابط الدعم الفني] **
 
-         **  - [ *inv]  [ دعوة البوت الي سيرفر]
+         **  - [ *inv]  [ دعوة البوت الي سيرفر]**
 	  
 	 ** اذا تبي رابط السيرفر اكتب : رٱبط**
 	  
