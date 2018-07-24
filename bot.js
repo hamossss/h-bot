@@ -114,8 +114,41 @@ client.on('message', message => {
            }
 });
 
+  client.on('message',function(message) {
+  if (message.author.bot) return;
 
 
+                  if(!message.channel.guild) return;
+
+                    if (message.content === prefix + "members") {
+ const embed = new Discord.RichEmbed()
+
+    .setDescription(`**Members info ✨
+💚 online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+❤  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+💛  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
+💠   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
+💡 bots: ${message.guild.members.filter(m=>m.user.bot).size} **`)
+         message.channel.send({embed});
+
+    }
+      });
+
+
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "bot")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField(' السيرفرات🌐',`[${client.guilds.size}]  `)
+.addField(' الاعضاء👥 ',` [${client.users.size}] `)
+.addField('الرومات📚 ',`[${client.channels.size}]`) 
+.addField(' البنق🚀 ',`[${Date.now() - message.createdTimestamp}]`) 
+.addField('مصمم  + !S7Q | ĦÂмØ♚ ',`#3342`)
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
