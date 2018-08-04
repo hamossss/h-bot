@@ -189,7 +189,7 @@ const embed = new Discord.RichEmbed()
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#09fa2a")
-         .setFooter('H BOT' , client.user.avatarURL)
+         .setFooter('MAKER BOT' , client.user.avatarURL)
            client.channels.get("464605715789774869").send({embed});
 }
 
@@ -204,7 +204,7 @@ const embed = new Discord.RichEmbed()
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#ff0000")
-         .setFooter('H BOT' , client.user.avatarURL)
+         .setFooter('MAKER BOT' , client.user.avatarURL)
            client.channels.get("464605715789774869").send({embed});
 }
 
