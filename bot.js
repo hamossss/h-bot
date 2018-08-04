@@ -337,7 +337,7 @@ client.on('message', message => {
  
  ❖ !role all  ➾ اعطاء جميع الاعضاء رتبه
  
- ❖ !Suport ➾ سيرفر السبورت 
+ ❖ !Support ➾ سيرفر السبورت 
  
  ❖ !inv ➾ اضافة البوت الي سيرفرك
  
@@ -601,5 +601,60 @@ message.channel.send(embed);
     
 });
 
+ client.on('message', message => {
+     if (message.content === "!sand") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " | تم ارسال رسالة صاحب البوت ")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+ client.on('message', message => {
+     if (message.content === "!inv") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+    client.on('message', message => {
+  if (true) {
+if (message.content === '!support') {
+      message.author.send(' | https://discord.gg/ddshPQt | لـ أي استفسار').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+
+ client.on('message', message => {
+  if (true) {
+if (message.content === '!inv') {
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=464578042094944266&permissions=8&scope=bot').catch(e => console.log(e.stack));
+
+    }
+   } 
+  }); 
+  
+ client.on('message', message => {
+     if (message.content === "!support") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
