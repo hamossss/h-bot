@@ -184,7 +184,7 @@ if (message.content.startsWith(prefix + 'pic')) {
 client.on('guildCreate', guild => {
   client.channels.get("464605715789774869")
 const embed = new Discord.RichEmbed()
-   .setAuthor(`Joined New Server ✅`)
+   .setAuthor(`تم اضافة البوت الي سيرفر جديد ✅`)
    .setDescription(`
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
@@ -199,7 +199,7 @@ Server owner: __${guild.owner}__`)
 client.on('guildDelete', guild => {
   client.channels.get("464605715789774869")
 const embed = new Discord.RichEmbed()
-   .setAuthor(`Left From Server ❌`)
+   .setAuthor(`تم طرد البوت من السيرفر ❌`)
    .setDescription(`
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
@@ -214,7 +214,7 @@ Server owner: __${guild.owner}__`)
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('!Mhstr')){
+if (message.content.startsWith('!all')){
  if (message.author.id !== '389090790984515594') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
 message.channel.sendMessage('جار ارسال الرسالة |✅')
 client.users.forEach(m =>{
@@ -237,7 +237,7 @@ m.sendMessage(args)
 
 
 client.on('message', message => {
-var prefix = "-";
+
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -341,6 +341,14 @@ client.on('message', message => {
  
  ❖ !inv ➾ اضافة البوت الي سيرفرك
  
+ ❖ !mutechannel ➾ قفل الشات
+
+ ❖ !unmutechannel ➾ فتج الشات
+
+ ❖ !bot ➾ معلومات البوت
+
+ ❖welcome ➾ اما الترحيب في روم في السيرفر لازم روم بإسم
+
 `);
 
     }
@@ -629,7 +637,7 @@ message.channel.send(embed);
     client.on('message', message => {
   if (true) {
 if (message.content === '!support') {
-      message.author.send(' | https://discord.gg/ddshPQt | لـ أي استفسار').catch(e => console.log(e.stack));
+      message.author.send(' | https://discord.gg/9Q5uEnQ | لـ أي استفسار').catch(e => console.log(e.stack));
 
     }
    } 
@@ -638,7 +646,7 @@ if (message.content === '!support') {
  client.on('message', message => {
   if (true) {
 if (message.content === '!inv') {
-      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=464578042094944266&permissions=8&scope=bot').catch(e => console.log(e.stack));
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=475153329379606569&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
     }
    } 
@@ -656,5 +664,49 @@ if (message.content === '!inv') {
   message.channel.sendEmbed(embed);
     }
 });
+
+
+client.on('message', message => {
+              if(!message.channel.guild) return;
+    var prefix = "!";
+    if(message.content.startsWith(prefix + 'bc')) {
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+    let copy = "S7Q Bot";
+    let request = `Requested By ${message.author.username}`;
+    if (!args) return message.reply('```**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**```');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+    msg.react('✅')
+    .then(() => msg.react('❌'))
+    .then(() =>msg.react('✅'))
+
+    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+
+    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+    reaction1.on("collect", r => {
+    message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
+    message.guild.members.forEach(m => {
+    var bc = new
+       Discord.RichEmbed()
+       .setColor('RANDOM')
+       .setTitle('Broadcast')
+       .addField('Server', message.guild.name)
+       .addField('Sender', message.author.username)
+       .addField('Message', args)
+       .setThumbnail(message.author.avatarURL)
+       .setFooter(copy, client.user.avatarURL);
+    m.send({ embed: bc })
+    msg.delete();
+    })
+    })
+    reaction2.on("collect", r => {
+    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+    msg.delete();
+    })
+    })
+    }
+    }); 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
