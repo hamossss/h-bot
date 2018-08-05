@@ -161,7 +161,7 @@ client.on('ready',  () => {
                   }
 });
 
-const devs = ['466425075487342615' , '466425075487342615' , '' , ''];
+const devs = ['463111689366274048' , '466425075487342615' , '' , ''];
 client.on('message', message => {
 var prefix = "!";
   if (!message.content.startsWith(prefix)) return;
@@ -182,7 +182,7 @@ if (message.content.startsWith(prefix + 'pic')) {
 });
 
 client.on('guildCreate', guild => {
-  client.channels.get("464605715789774869")
+  client.channels.get("475765682919702528")
 const embed = new Discord.RichEmbed()
    .setAuthor(`تم اضافة البوت الي سيرفر جديد ✅`)
    .setDescription(`
@@ -190,14 +190,14 @@ Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#09fa2a")
          .setFooter('MAKER BOT' , client.user.avatarURL)
-           client.channels.get("464605715789774869").send({embed});
+           client.channels.get("475765682919702528").send({embed});
 }
 
 );
 
          
 client.on('guildDelete', guild => {
-  client.channels.get("464605715789774869")
+  client.channels.get("475765682919702528")
 const embed = new Discord.RichEmbed()
    .setAuthor(`تم طرد البوت من السيرفر ❌`)
    .setDescription(`
@@ -205,7 +205,7 @@ Server name: __${guild.name}__
 Server owner: __${guild.owner}__`)
          .setColor("#ff0000")
          .setFooter('MAKER BOT' , client.user.avatarURL)
-           client.channels.get("464605715789774869").send({embed});
+           client.channels.get("475765682919702528").send({embed});
 }
 
 );
@@ -708,7 +708,7 @@ client.on('message', message => {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "H BOT";
+    let copy = "MAKER BOTT";
     let request = `Requested By ${message.author.username}`;
     if (!args) return message.reply('```**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**```');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
