@@ -699,6 +699,24 @@ client.on('message', message => {
     }
     }); 
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '475710721129447449').setName("M");
+client.channels.find('id', '475710721129447449').setName("Ma");
+client.channels.find('id', '475710721129447449').setName("Mak");
+client.channels.find('id', '475710721129447449').setName("Make");
+client.channels.find('id', '475710721129447449').setName("Maker");
+client.channels.find('id', '475710721129447449').setName("Maker B");
+client.channels.find('id', '475710721129447449').setName("Maker Bo");
+client.channels.find('id', '475710721129447449').setName("Maker Bot");
+client.channels.find('id', '475710721129447449').setName("Maker Bot S");
+client.channels.find('id', '475710721129447449').setName("Maker Bot Su");
+client.channels.find('id', '475710721129447449').setName("Maker Bot Sup");
+client.channels.find('id', '475710721129447449').setName("Maker Bot Supp");
+client.channels.find('id', '475710721129447449').setName("Maker Bot Suppo");
+client.channels.find('id', '475710721129447449').setName("Maker Bot Support.");
+  }, 3000);
+});
 
 
 // THIS  MUST  BE  THIS  WAY
