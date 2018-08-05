@@ -151,15 +151,7 @@ client.on('ready',  () => {
 
 
 
-            client.on('message', message => {
-                 var prefix = "$";
-                if(message.content === prefix + "inv") {
-                    let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right:  Click Here :arrow_left:**")
-                    .setURL("https://discordapp.com/oauth2/authorize?client_id=475417337210601494&permissions=8&scope=bot");
-                   message.channel.sendEmbed(embed);
-                  }
-});
+            
 
 const devs = ['463111689366274048' , '466425075487342615' , '' , ''];
 client.on('message', message => {
@@ -664,7 +656,7 @@ message.channel.send(embed);
 });
 
  client.on('message', message => {
-     if (message.content === "!inv") {
+     if (message.content === "$inv") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -684,7 +676,14 @@ if (message.content === '$support') {
    } 
   });
 
+    client.on('message', message => {
+  if (true) {
+if (message.content === '$inv') {
+      message.author.send('رابط البوت https://discordapp.com/oauth2/authorize?client_id=475417337210601494&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
+    }
+   } 
+  });
   
  client.on('message', message => {
      if (message.content === "$support") {
