@@ -214,7 +214,7 @@ Server owner: __${guild.owner}__`)
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('!all')){
+if (message.content.startsWith('$all')){
  if (message.author.id !== '466425075487342615') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
 message.channel.sendMessage('جار ارسال الرسالة |✅')
 client.users.forEach(m =>{
@@ -223,7 +223,17 @@ m.sendMessage(args)
 }
 });
 
-
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('$all')){
+ if (message.author.id !== '463111689366274048') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+message.channel.sendMessage('جار ارسال الرسالة |✅')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
   
   
   client.on('guildCreate', guild => {
@@ -572,7 +582,7 @@ client.on("guildMemberAdd", member => {
 });
  
  client.on('message' , message => {
-var prefix = "!"
+var prefix = "$"
 
 if (message.author.bot) return;
 if (message.content.startsWith(prefix + "sand")) {
@@ -606,8 +616,43 @@ message.channel.send(embed);
     
 });
 
+ client.on('message' , message => {
+var prefix = "$"
+
+if (message.author.bot) return;
+if (message.content.startsWith(prefix + "sand")) {
+if (!message.channel.guild) return;
+
+
+
+let args = message.content.split(" ").slice(1).join(" ");
+
+
+
+client.users.get("463111689366274048").send(
+    "\n" + "**" + "● السيرفر :" + "**" +
+    "\n" + "**" + "» " + message.guild.name + "**" +
+    "\n" + "**" + " ● المرسل : " + "**" +
+    "\n" + "**" + "» " + message.author.tag + "**" +
+    "\n" + "**" + " ● الرسالة : " + "**" +
+    "\n" + "**" + args + "**")
+
+let embed = new Discord.RichEmbed()
+     .setAuthor(message.author.username, message.author.avatarURL)
+     .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
+     .setThumbnail(message.author.avatarURL)
+     .setFooter("By : Elmusaui_GK and SpeedMC")
+                                                
+
+message.channel.send(embed);
+
+
+}
+    
+});
+
  client.on('message', message => {
-     if (message.content === "!sand") {
+     if (message.content === "$sand") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -633,8 +678,8 @@ message.channel.send(embed);
 });
     client.on('message', message => {
   if (true) {
-if (message.content === '!support') {
-      message.author.send(' | https://discord.gg/9Q5uEnQ | لـ أي استفسار').catch(e => console.log(e.stack));
+if (message.content === '$support') {
+      message.author.send(' | https://discord.gg/ac3rEcr | لـ أي استفسار').catch(e => console.log(e.stack));
 
     }
    } 
@@ -643,7 +688,7 @@ if (message.content === '!support') {
 
   
  client.on('message', message => {
-     if (message.content === "!support") {
+     if (message.content === "$support") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -701,20 +746,20 @@ client.on('message', message => {
 
 client.on("ready", async  => {
 setInterval(function(){
-client.channels.find('id', '475710721129447449').setName("M");
-client.channels.find('id', '475710721129447449').setName("Ma");
-client.channels.find('id', '475710721129447449').setName("Mak");
-client.channels.find('id', '475710721129447449').setName("Make");
-client.channels.find('id', '475710721129447449').setName("Maker");
-client.channels.find('id', '475710721129447449').setName("Maker B");
-client.channels.find('id', '475710721129447449').setName("Maker Bo");
-client.channels.find('id', '475710721129447449').setName("Maker Bot");
-client.channels.find('id', '475710721129447449').setName("Maker Bot S");
-client.channels.find('id', '475710721129447449').setName("Maker Bot Su");
-client.channels.find('id', '475710721129447449').setName("Maker Bot Sup");
-client.channels.find('id', '475710721129447449').setName("Maker Bot Supp");
-client.channels.find('id', '475710721129447449').setName("Maker Bot Suppo");
-client.channels.find('id', '475710721129447449').setName("Maker Bot Support.");
+client.channels.find('id', '475760983659380761').setName("M");
+client.channels.find('id', '475760983659380761').setName("Ma");
+client.channels.find('id', '475760983659380761').setName("Mak");
+client.channels.find('id', '475760983659380761').setName("Make");
+client.channels.find('id', '475760983659380761').setName("Maker");
+client.channels.find('id', '475760983659380761').setName("Maker B");
+client.channels.find('id', '475760983659380761').setName("Maker Bo");
+client.channels.find('id', '475760983659380761').setName("Maker Bot");
+client.channels.find('id', '475760983659380761').setName("Maker Bot S");
+client.channels.find('id', '475760983659380761').setName("Maker Bot Su");
+client.channels.find('id', '475760983659380761').setName("Maker Bot Sup");
+client.channels.find('id', '475760983659380761').setName("Maker Bot Supp");
+client.channels.find('id', '475760983659380761').setName("Maker Bot Suppo");
+client.channels.find('id', '475760983659380761').setName("Maker Bot Support.");
   }, 3000);
 });
 
