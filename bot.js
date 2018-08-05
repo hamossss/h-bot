@@ -90,7 +90,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Hamo ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`!help|!inv ON ${client.guilds.size} Servers`,"http://twitch.tv/S-F")
+client.user.setGame(`$help|$inv ON ${client.guilds.size} Servers`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 var prefix = "$";
