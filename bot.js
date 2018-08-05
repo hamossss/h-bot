@@ -93,7 +93,7 @@ client.on('ready', () => {
 client.user.setGame(`!help|!inv ON ${client.guilds.size} Servers`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
-var prefix = "!";
+var prefix = "$";
 
 client.on("message", message => {
  
@@ -152,11 +152,11 @@ client.on('ready',  () => {
 
 
             client.on('message', message => {
-                 var prefix = "*";
+                 var prefix = "$";
                 if(message.content === prefix + "inv") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: اضغط هنا الرابط البوت :arrow_left:**")
-                    .setURL("https://discordapp.com/oauth2/authorize?client_id=449945015490445325&permissions=8&scope=bot");
+                    embed.setTitle("**:arrow_right:  Click Here :arrow_left:**")
+                    .setURL("https://discordapp.com/oauth2/authorize?client_id=475417337210601494&permissions=8&scope=bot");
                    message.channel.sendEmbed(embed);
                   }
 });
@@ -290,7 +290,7 @@ client.on('message', message =>{
 
 
 client.on('message', message => {
-if (message.content.startsWith("!ban")) {
+if (message.content.startsWith("$ban")) {
     var mention = message.mentions.members.first();
     if(!mention) return message.channel.send("يجب منشن العضو");
 
@@ -313,39 +313,39 @@ client.on('message', message => {
  message.author.sendMessage(`
 
 
- ❖ !kick  ➾ لطرد عضو
+ ❖ $kick  ➾ لطرد عضو
  
- ❖ !ban ➾ لتبنيد عضو
+ ❖ $ban ➾ لتبنيد عضو
  
- ❖ !mute  ➾ لاعطاء العضو ميوت
+ ❖ $mute  ➾ لاعطاء العضو ميوت
 
- ❖ !unmute  ➾ لا فك عن العضو الميوت
+ ❖ $unmute  ➾ لا فك عن العضو الميوت
  
- ❖ !clear ➾ مسح الشات بعدد
+ ❖ $clear ➾ مسح الشات بعدد
  
- ❖ !bc  ➾ لارسال رسالة لجميع اعضاء السيرفر
+ ❖ $bc  ➾ لارسال رسالة لجميع اعضاء السيرفر
  
- ❖ !sand  ➾ ارسال رسالة له صاحب البوت
+ ❖ $sand  ➾ ارسال رسالة له صاحب البوت
  
- ❖ !server  ➾ معلومات السيرفر
+ ❖ $server  ➾ معلومات السيرفر
  
- ❖ !id  ➾ معرفة ملعومات العضو
+ ❖ $id  ➾ معرفة ملعومات العضو
  
- ❖ !mb  ➾ معرفة حالة الاعضاء
+ ❖ $mb  ➾ معرفة حالة الاعضاء
  
- ❖ !role  ➾ اعطاء عضو رتبة
+ ❖ $role  ➾ اعطاء عضو رتبة
  
- ❖ !role all  ➾ اعطاء جميع الاعضاء رتبه
+ ❖ $role all  ➾ اعطاء جميع الاعضاء رتبه
  
- ❖ !Support ➾ سيرفر السبورت 
+ ❖ $support ➾ سيرفر السبورت 
  
- ❖ !inv ➾ اضافة البوت الي سيرفرك
+ ❖ $inv ➾ اضافة البوت الي سيرفرك
  
- ❖ !mutechannel ➾ قفل الشات
+ ❖ $mutechannel ➾ قفل الشات
 
- ❖ !unmutechannel ➾ فتج الشات
+ ❖ $unmutechannel ➾ فتج الشات
 
- ❖ !bot ➾ معلومات البوت
+ ❖ $bot ➾ معلومات البوت
 
  ❖welcome ➾ اما الترحيب في روم في السيرفر لازم روم بإسم
 
@@ -379,7 +379,7 @@ client.on("message", message => { //clear
 
 
 client.on('message', message => {
-if (message.content.startsWith("!kick")) {
+if (message.content.startsWith("$kick")) {
     var mention = message.mentions.members.first();
     if(!mention) return message.channel.send("يجب منشن العضو");
 
@@ -463,7 +463,7 @@ client.on('message', function(msg) {
   });
   
 client.on('message', message => {
-     if (message.content === "!bot") {
+     if (message.content === "$bot") {
             if(!message.channel.guild) return message.reply('** This command only for servers **');
      let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
@@ -476,7 +476,7 @@ message.channel.sendEmbed(embed);
 });
 
 client.on('message', eyad => {
-  if (eyad.content.startsWith('!unmute')) {
+  if (eyad.content.startsWith('$unmute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
  let men = eyad.mentions.users.first()
  let mas = eyad.author
@@ -509,7 +509,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 
 
 client.on('message', eyad => {
-  if (eyad.content.startsWith('!mute')) {
+  if (eyad.content.startsWith('$mute')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
@@ -550,7 +550,7 @@ client.on("guildMemberAdd", member => {
 
   client.on('message', message => {
     if (message.author.bot) return;
-    if(message.content == '!mb') {
+    if(message.content == '$mb') {
     const embed = new Discord.RichEmbed()
     .addField(`حالة الأعضاء 🔋`,'-',   true)
 .addField(`💚 اونلاين :   ${message.guild.members.filter(m=>m.presence.status == 'online').size}`,'-',   true)
@@ -640,14 +640,7 @@ if (message.content === '!support') {
    } 
   });
 
- client.on('message', message => {
-  if (true) {
-if (message.content === '!inv') {
-      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=475153329379606569&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
-    }
-   } 
-  }); 
   
  client.on('message', message => {
      if (message.content === "!support") {
@@ -665,7 +658,7 @@ if (message.content === '!inv') {
 
 client.on('message', message => {
               if(!message.channel.guild) return;
-    var prefix = "!";
+    var prefix = "$";
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
