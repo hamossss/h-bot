@@ -163,7 +163,6 @@ client.on('ready',  () => {
 
 const devs = ['463111689366274048' , '466425075487342615' , '' , ''];
 client.on('message', message => {
-var prefix = "!";
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
     var argresult = message.content.split(` `).slice(1).join(' ');
