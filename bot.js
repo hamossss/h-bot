@@ -171,9 +171,9 @@ client.on('message', message => {
 if (message.content.startsWith(prefix + 'nic')) {
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`**${argresult}** : تم بنجاح تغيير الاسم `)
-  return message.reply("**تم تغيير الاسم البوت بنجاح ?**");
+  return message.reply("**تم تغيير الاسم البوت بنجاح **");
 } else
-if (message.content.startsWith(prefix + 'pic')) {
+if (message.content.startsWith(prefix + 'ابييس')) {
   client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغيير صورة البوت بنجاح ?`);
 
