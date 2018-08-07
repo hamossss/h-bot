@@ -577,40 +577,7 @@ message.channel.send(embed);
     
 });
 
- client.on('message' , message => {
-var prefix = "$"
 
-if (message.author.bot) return;
-if (message.content.startsWith(prefix + "sand")) {
-if (!message.channel.guild) return;
-
-
-
-let args = message.content.split(" ").slice(1).join(" ");
-
-
-
-client.users.get("463111689366274048").send(
-    "\n" + "**" + "● السيرفر :" + "**" +
-    "\n" + "**" + "» " + message.guild.name + "**" +
-    "\n" + "**" + " ● المرسل : " + "**" +
-    "\n" + "**" + "» " + message.author.tag + "**" +
-    "\n" + "**" + " ● الرسالة : " + "**" +
-    "\n" + "**" + args + "**")
-
-let embed = new Discord.RichEmbed()
-     .setAuthor(message.author.username, message.author.avatarURL)
-     .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
-     .setThumbnail(message.author.avatarURL)
-     .setFooter("By : Elmusaui_GK and SpeedMC")
-                                                
-
-message.channel.send(embed);
-
-
-}
-    
-});
 
  client.on('message', message => {
      if (message.content === "$sand") {
