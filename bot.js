@@ -1,15 +1,7 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready', () => {
-    console.log('I am ready!');
-});
-
-client.on('message', message => {
-    if (message.content === 'ping') {
-        message.reply('pong');
-      }
-});
+const bot = new Discord.Client();   
+const canvas = require("canvas");
+const jimp = require('jimp');   
 
 const sWlc = {}
 const premium = ['389090790984515594']
@@ -53,8 +45,7 @@ client.on("guildMemberAdd", member => {
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:heroo});          
          
-      var Canvas = require('canvas')
-      var jimp = require('jimp')
+
       
       const w = ['PicsArt_07-17-07.58.02 (1).png'];
       
