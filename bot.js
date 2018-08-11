@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();  
+const client = new Discord.Client();
 let sw = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))
  
     client.on('message', message => {
@@ -219,7 +219,7 @@ client.on("guildMemberAdd", (member) => {
  
  
  const sWlc = {}
-const premium = ['466425075487342615', '', '', '']
+const premium = ['340568730037911554', '', '', '']
 bot.on('message', message => {
 var prefix = "#";
 if(message.channel.type === "dm") return;
