@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();   
+const client = new Discord.Client();  
 const canvas = require("canvas");
-const jimp = require('jimp');   
-
-const sWlc = {}
+const moment = require("moment");  
+const jimp = require('jimp');  
+ 
+      const sWlc = {}
 const premium = ['389090790984515594']
 client.on('message', message => {
 var prefix = "!";
@@ -22,8 +23,8 @@ const channel = sWlc[message.guild.id].channel
   }
 });
  
-
-
+ 
+ 
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
     channel: "welcome"
@@ -45,40 +46,41 @@ client.on("guildMemberAdd", member => {
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:heroo});          
          
-
-      
+      var Canvas = require('canvas')
+      var jimp = require('jimp')
+     
       const w = ['PicsArt_07-17-07.58.02 (1).png'];
-      
+     
               let Image = Canvas.Image,
                   canvas = new Canvas(557, 241),
                   ctx = canvas.getContext('2d');
-  
+ 
               fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
                   if (err) return console.log(err)
                   let BG = Canvas.Image;
                   let ground = new Image;
                   ground.src = Background;
                   ctx.drawImage(ground, 0, 0, 557, 241);
-      
+     
       })
-      
+     
                       let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
                       jimp.read(url, (err, ava) => {
                           if (err) return console.log(err);
                           ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                               if (err) return console.log(err);
-      
+     
                                     ctx.font = '30px Arial Bold';
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#FFFFFF";
                                 ctx.fillText(member.user.username, 245, 150);
-                              
+                             
                               //NAMEً
                               ctx.font = '30px Arial';
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
       ctx.fillText(`Welcome To ${member.guild.name}`, 245, 80);
-      
+     
                               //AVATARً
                               let Avatar = Canvas.Image;
                               let ava = new Avatar;
@@ -88,20 +90,21 @@ client.on("guildMemberAdd", member => {
                    ctx.closePath();
                    
                                  ctx.clip();
-
+ 
                         ctx.drawImage(ava, 7, 8, 227, 225);
                               ctx.closePath();
-
-                            
+ 
+                           
     welcomer.sendFile(canvas.toBuffer())
-      
-      
-      
+     
+     
+     
       })
       })
-      
+     
       }
       });
-
-// THIS  MUST  BE  THIS  WAY
-bot.login(process.env.BOT_TOKEN);
+     
+ 
+ 
+client.login(process.env.BOT_TOKEN);
