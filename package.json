@@ -9,9 +9,9 @@
   "dependencies": {
   "discord.js": "11.1.0",
   "request": "2.81.0",
-  "fs": "0.0.1-security"
+  "fs": "0.0.1-security",
   "canvas": "1.6.11",
-  "moment": "2.22.2"  
+  "moment": "2.22.2",
   "jimp": "0.3.3"
   }
 }
