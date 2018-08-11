@@ -11,20 +11,6 @@ client.on('message', message => {
       }
 });
 
-
-
- 
-
-
-const jimp = require('jimp');   
-const canvas = require("canvas");
-
-
-
-
-
-
-
 const sWlc = {}
 const premium = ['389090790984515594']
 client.on('message', message => {
