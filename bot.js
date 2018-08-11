@@ -22,7 +22,7 @@ const canvas = require("canvas");
 
 
 const sWlc = {}
-const premium = ['389090790984515594']
+const premium = ['475803379214581763']
 client.on('message', message => {
 var prefix = "!";
 if(message.channel.type === "dm") return;
