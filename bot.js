@@ -64,7 +64,6 @@ Server Count: __${guild.memberCount}__**`)
 
 client.on("message", async message => {
             if(!message.channel.guild) return;
-            var prefix = "!";
         if(message.content.startsWith(prefix + 'invites')) {
         var nul = 0
         var guild = message.guild
