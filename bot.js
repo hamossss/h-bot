@@ -23,24 +23,29 @@ client.on('message',async message => {
 });
 
 
-client.on('message', function(msg) {
-    if(msg.content.startsWith ('server')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** server type**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __Roles__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ Members Number__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ Members Number who online__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ Text Channels__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ voice Channels__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ The Owner__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ Server ID__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__The date when the server created __**',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed});
+client.on('message', message => {
+
+     if (message.author.bot) return;
+    if (!message.channel.guild) return;
+    if (message.content.startsWith(prefix + 'mb')) {
+        if (!message.channel.guild) return;
+        let embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+            .setFooter(message.author.username, message.author.avatarURL)
+
+        .setDescription(`**:battery: حالة اعضاء السيرفر**
+    
+**:green_heart: Online**  **[ ${message.guild.members.filter(m=>m.presence.status == 'online').size} ]**
+**:yellow_heart: Idle**       **[ ${message.guild.members.filter(m=>m.presence.status == 'idle').size} ]**  
+**:heart: DND**     **[ ${message.guild.members.filter(m=>m.presence.status == 'dnd').size} ]**
+**:black_heart: Offline** **[ ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ]** `)
+
+        message.channel.send()
+
+        message.channel.sendEmbed(embed)
     }
-  });
+});
 
 client.on('guildCreate', guild => {
   client.channels.get("اي دي الروم").send(`:white_check_mark: **تم اضافة البوت في سيرفر جديد مبروكك
