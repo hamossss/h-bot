@@ -21,6 +21,17 @@ client.on('message',async message => {
   });
   }
 });
+
+client.on('message', message => {
+    if (message.content.startsWith("inv")) {
+
+    message.guild.fetchInvites()
+    .then(invites => message.channel.send(`**:busts_in_silhouette:  اتيت ب     [${invites.find(invite => invite.inviter.id === message.author.id)}]    :calling:   عضو لهذا السيرفر    `))
+         
+    }
+});
+
+
      
  client.on('message', message => {
     if (message.author.bot) return;
