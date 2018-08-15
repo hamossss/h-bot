@@ -247,79 +247,6 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 
 
 
-client.on('message',function(message) {
-    let muteRole = message.guild.roles.find(r => r.name === "Muted");
-    let muteId = message.mentions.users.first();
-    let messageArray = message.content.split(" ");
-    let muteReason = messageArray[3];
-    let Swearing = '1h';
-    let Advertising = '4h';
-    let Spam = '2h';
-   if(message.content.startsWith(prefix + "mute")) {
-       if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
-       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send("**- You don't have the needed permissions!**");
-       if(!muteId) return message.channel.send("**- Mention someone!**");
-       if(muteId === message.author) return message.channel.send('**- You cannot mute yourself!**');
-       if(muteId === client.user) return message.channel.send('**- You cannot mute me!**');
-       message.guild.channels.forEach((channel, id) => {
-      message.channel.overwritePermissions(muteRole, {
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-    message.channel.send(`
-    \`\`\`ml
-" قم بأختيار رقم السبب "
-1 : السب و الشتم h1
-2 : النشر h4
-3 : السبام h2
-\`\`\`
-__امامك 20 ثانية للاختيار__`)
-.then(() => {
-  message.channel.awaitMessages(response => response.content === '1', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Swearing));
-       message.channel.send(`**تم!, تم اعطاء ميوت لـ${muteId} بسبب السب و الشم**`);
-      });
-    });
-
-message.channel.awaitMessages(response => response.content === '2', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Advertising));
-       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب النشر**`);
-      });
-    });
-message.channel.awaitMessages(response => response.content === '3', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Spam));
-       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب السبام**`);
-      });
-    });
-   });
-   }
-});
-
 client.on('message',async message => {
   if(message.content.startsWith(prefix + "setvoice")) {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
@@ -338,68 +265,18 @@ client.on('message',async message => {
   }
 });
 
-
-
-
-
-
-client.on('message', async message =>{
-  if (message.author.boss) return;
-	var prefix = "!";
-
-if (!message.content.startsWith(prefix)) return;
-	let command = message.content.split(" ")[0];
-	 command = command.slice(prefix.length);
-	let args = message.content.split(" ").slice(1);
-	if (command == "mute") {
-		if (!message.channel.guild) return;
-		if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
-		if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
-		let user = message.mentions.users.first();
-		let muteRole = message.guild.roles.find("name", "Muted");
-		if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
-		if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
-		let reason = message.content.split(" ").slice(2).join(" ");
-		message.guild.member(user).addRole(muteRole);
-		const muteembed = new Discord.RichEmbed()
-		.setColor("RANDOM")
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setThumbnail(user.displayAvatarURL)
-		.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-		.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-		.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
-		.addField("User", user, true)
-		message.channel.send({embed : muteembed});
-		var muteembeddm = new Discord.RichEmbed()
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setDescription(`      
-${user} انت معاقب بميوت كتابي بسبب مخالفة القوانين
-${message.author.tag} تمت معاقبتك بواسطة
-[ ${reason} ] : السبب
-اذا كانت العقوبة عن طريق الخطأ تكلم مع المسؤلين
-`)
-		.setFooter(`في سيرفر : ${message.guild.name}`)
-		.setColor("RANDOM")
-	user.send( muteembeddm);
-  }
-if(command === `unmute`) {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("**ليس لديك صلاحية لفك عن الشخص ميوت**:x: ").then(m => m.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("**ما عندي برمشن**").then(msg => msg.delete(6000))
-
-  let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
-
-  let role = message.guild.roles.find (r => r.name === "Muted");
-  
-  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
-
-  await toMute.removeRole(role)
-  message.channel.sendMessage("**لقد تم فك الميوت عن شخص بنجاح**:white_check_mark:");
-
-  return;
-
-  }
-
+         client.on('message', message => {
+            if (message.content.startsWith(prefix + "bot")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField(' السيرفرات🌐',`[${client.guilds.size}]  `)
+.addField(' الاعضاء👥 ',` [${client.users.size}] `)
+.addField('الرومات📚 ',`[${client.channels.size}]`) 
+.addField(' البنق🚀 ',`[${Date.now() - message.createdTimestamp}]`) 
+.addField('مصمم  + صاحب البوت ',`!S7Q | ĦÂмØ♚ 1k#4141`)
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
 });
 
 
