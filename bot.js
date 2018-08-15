@@ -357,7 +357,7 @@ client.on('message',async message => {
   }
 });
 
-const temp = {};
+const temp = JSON.parse(fs.readFileSync("./temp.json", "utf8"));
 client.on('message', async message => {
  if(message.channel.type === "dm") return;
   if(message.author.bot) return;
@@ -431,6 +431,9 @@ client.on('message', async message => {
              })
            })
           }
+         fs.writeFile("./temp.json", JSON.stringify(temp), (err) => {
+        if(err) console.error(err)
+       })
       });
    
 client.login(process.env.BOT_TOKEN);
