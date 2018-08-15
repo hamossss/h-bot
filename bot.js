@@ -342,7 +342,9 @@ client.on('message',async message => {
 
 
 
+
 client.on('message', message => {
+var prefix ="$";
 if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
     let pages = [`
 ***__وصف عن البوت__***
