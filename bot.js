@@ -301,29 +301,26 @@ client.on('guildMemberAdd', member => {
   }); 
 });
 
-client.on('guildMemberAdd', member => {
-     const welcomer =  member.guild.channels.find('name', 'welcome');
-    if(!welcomer) return;
+const moment = require('moment');
+client.on("guildMemberAdd", member => {
+let welcomer = member.guild.channels.find("name","s7q");
+      if(!welcomer) return;
       if(welcomer) {
          moment.locale('ar-ly');
-         var m = member.user;
-        let yumz = new Discord.RichEmbed()
+         var h = member.user;
+        let norelden = new Discord.RichEmbed()
         .setColor('RANDOM')
-        .setThumbnail(m.avatarURL)
-        .setAuthor(m.username,m.avatarURL)
+        .setThumbnail(h.avatarURL)
+        .setAuthor(h.username,h.avatarURL)
         .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
-      
-         .setFooter(`${m.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
-     welcomer.send({embed:yumz});          
-         
-    
-                    }  )  
-      
-                    
+         .addField(': ',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
+         .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
+     welcomer.send({embed:norelden});          
+               
+ 
+      }
+      });
 
-})
-      });                    
- }
 
    
 client.login(process.env.BOT_TOKEN);
