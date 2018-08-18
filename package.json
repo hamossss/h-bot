@@ -17,6 +17,7 @@
   "ffmpeg-binaries": "3.2.2-3",
   "get-youtube-id": "1.0.0",
   "youtube-info": "1.2.0",
-  "simple-youtube-api": "5.0.2"
+  "simple-youtube-api": "5.0.2",
+  "moment": "2.22.2"
   }
 }
