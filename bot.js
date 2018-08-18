@@ -439,6 +439,18 @@ if (message.content.startsWith("$ban")) {
     message.channel.send("تم أعطاء باند الى : " + mention.tag);
 };
 });
+
+
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : Hamo`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : Hamo ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`$help|$inv ON ${client.guilds.size} Servers`,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
+});
   
 
 client.login(process.env.BOT_TOKEN);
