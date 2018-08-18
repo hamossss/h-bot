@@ -324,19 +324,11 @@ let welcomer = member.guild.channels.find("name","welcome");
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
+      if(!message.member.hasPermission('ADMINISTRATOR'))
         message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تنشر",
-        color: 0x06DF00,
-        description: "يمنع النشر في هذا السيرفر",
-        footer: {
-          text: "By HaMo"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
-}); 
+    return message.reply(`** يمنع نشر الروابط بهذا السيرفر  :angry: ! **`)
+    }
+});
 
 
 
